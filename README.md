@@ -1,23 +1,33 @@
 # BeatSample Organizer
 
-BeatSample Organizer is a Python-based command-line tool designed for beat creators and music producers. It scans directories for audio files (such as WAV, MP3, FLAC, and OGG), extracts essential metadata like duration and sample rate, lists your beat samples, and can generate a JSON report for further analysis. This tool helps you keep your sample library organized with ease.
+BeatSample Organizer is an advanced, Python-based command-line tool for beat creators and music producers. It scans directories for audio files, extracts metadata (such as duration and sample rate), performs BPM detection using `librosa`, and generates mel-frequency spectrogram visualizations with a customizable dark/light theme. Users can also generate a detailed JSON report of their sample library.
 
 ## Features
 
-- **Scan Samples:** Recursively search a specified directory for audio files.
-- **Metadata Extraction:** Uses the [mutagen](https://mutagen.readthedocs.io/en/latest/) library to extract details such as duration and sample rate.
-- **List Samples:** Display your beat sample files along with relevant metadata.
-- **Generate Report:** Optionally output the scanned data into a JSON report for further analysis.
+- **Asynchronous Scanning:**  
+  Uses a ThreadPoolExecutor to efficiently scan large directories.
+
+- **Metadata Extraction:**  
+  Retrieves file information (duration, sample rate) using [mutagen](https://mutagen.readthedocs.io/en/latest/).
+
+- **BPM Detection:**  
+  Computes the beats per minute (BPM) of each audio file with [librosa](https://librosa.org/).
+
+- **Spectrogram Generation:**  
+  Generates spectrogram images for each sample with a toggle for dark or light themes using `matplotlib` and `librosa.display`.
+
+- **JSON Reporting:**  
+  Optionally outputs all extracted metadata into a JSON report for further analysis.
 
 ## Requirements
 
-- Python 3.6 or higher
-- [Mutagen](https://mutagen.readthedocs.io/en/latest/) library
+- Python 3.6 or later
+- [mutagen](https://pypi.org/project/mutagen/)
+- [librosa](https://pypi.org/project/librosa/)
+- [matplotlib](https://pypi.org/project/matplotlib/)
+- [numpy](https://pypi.org/project/numpy/)
 
-## Installation
+Install the dependencies using pip:
 
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/your_username/BeatSample-Organizer.git
-   cd BeatSample-Organizer
+```bash
+pip install mutagen librosa matplotlib numpy
